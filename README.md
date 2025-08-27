@@ -14,8 +14,8 @@
 Timing complex karaoke effects is a high-precision task. A common problem, especially with variable framerate (VFR) videos, is the "flickering" or "jittering" of animations. This occurs when a calculated time falls an instant after the start of a frame, causing the renderer to display the effect one frame later than intended. I sought to apply automated effects that detect whether a line is romaji or a translation and apply a universal effect that greatly simplifies the creation of identical effects. These effects use alpha transformations to hide syllables as they are sung and then show them again, synchronizing with the highlight.
 
 The built-in `Shift Timer` in Aegisub, while useful for simple shifts, has two main limitations for this type of work:
-* 1.  It only shifts the start and end times of the line, without adjusting the relative timings of transformations (`\t`, `\move`, etc.) within the text, which can break internal synchronization.
-* 2.  Its frame-snapping method is not precise enough to prevent flickering in all VFR cases.
+* It only shifts the start and end times of the line, without adjusting the relative timings of transformations (`\t`, `\move`, etc.) within the text, which can break internal synchronization.
+* Its frame-snapping method is not precise enough to prevent flickering in all VFR cases.
 
 This script was created to solve these problems, providing a time-shifting tool that is both **frame-accurate** and **respectful of internal animations**. It adjusts both the start and end of the line and rewrites the internal transformations.
 
